@@ -73,7 +73,7 @@ const game = () => {
             playerScoreBoard.innerText = playerScore;
 
             result.innerText =
-                `Player Won! ${player} beats ${computer}`;
+                `Player Won ${player} beats ${computer}`;
 
         }
 
@@ -83,10 +83,10 @@ const game = () => {
             computerScoreBoard.innerText = computerScore;
 
             result.innerText =
-                `Computer Won! ${computer} beats ${player}`;
+                `Computer Won ${computer} beats ${player}`;
 
         }
-
+ 
     };
 
     // game over
@@ -102,14 +102,14 @@ const game = () => {
         // final result
         if (playerScore > computerScore) {
 
-            result.innerText = 'You Won The Game!';
+            result.innerText = 'You Won The Game ';
             result.style.color = 'green';
 
         }
 
         else if (computerScore > playerScore) {
 
-            result.innerText = 'You Lost The Game!';
+            result.innerText = 'You Lost The Game ';
             result.style.color = 'red';
 
         }
@@ -125,7 +125,7 @@ const game = () => {
         resetBtn.innerText = 'Restart';
 
         resetBtn.addEventListener('click', () => {
-            window.location.reload();
+            window.location.reload(); //reload the page to reset the game when the reset button is clicked
         });
 
     };

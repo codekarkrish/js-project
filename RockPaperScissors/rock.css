@@ -47,6 +47,13 @@ body{
     border-radius: 5px;
     cursor: pointer;
 }
+.choice button:hover{
+    background-color: #0056b3;
+    transform: scale(1.05);
+}
+.choices button, #reset{
+    transition: 0.3s;
+}
 .result{
     margin-top: 20px;
     font-size: 18px;
@@ -71,4 +78,7 @@ body{
     font-size: 16px;
     color: #555;
     margin: 10px;
+}
+.choices{
+    gap: 10px;
 }

@@ -1,0 +1,54 @@
+body{
+    font-family: Arial, sans-serif;
+    display : flex; 
+    justify-content: center;
+    height : 100vh;
+    margin :0;
+    background-color: aliceblue;
+    align-items: center;
+
+}
+
+.pass{
+    background-color: antiquewhite;
+    padding : 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    width: 300px;
+    height: 200px;
+    text-align: center;
+    justify-content: center;
+}
+
+.passInput{
+    display: flex;
+    align-items: center;
+    position: relative;
+}
+
+input{
+    width:100%;
+    padding:10px;
+    padding-right:45px;
+    margin:10px 0;
+    border:2px solid #ccc;
+    border-radius:5px;
+    font-size:16px;
+}
+
+.eye-icon{
+ position: absolute;
+    right: 10px;
+    cursor: pointer;
+    font-size: 20px;
+    color: #333;r;
+}
+.eye-icon:hover{
+    transform: scale(1.0);
+}
+
+label{
+    font-size: 18px;
+    margin-bottom: 10px;
+    display: block;
+}
