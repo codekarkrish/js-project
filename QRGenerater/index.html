@@ -22,15 +22,23 @@
             <!-- QR Output -->
             <div class="qrcode"></div>
 
-            <!-- Input -->
+            <!-- QR Input -->
             <input 
-                type="text" 
-                placeholder="Paste a URL or enter text, then press Enter"
-                onchange="generateQr()"
+                type="text"
+                id="qrText"
+                placeholder="Paste URL or enter text"
+            />
+
+            <!-- File name input -->
+            <input 
+                type="text"
+                id="fileName"
+                placeholder="Enter file name (optional)"
             />
 
             <!-- Buttons -->
             <div class="buttons">
+                <button onclick="generateQr()">Generate QR</button>
                 <button onclick="downloadQR()">Download QR</button>
             </div>
 

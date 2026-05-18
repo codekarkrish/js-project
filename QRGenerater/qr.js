@@ -1,49 +1,48 @@
-// Script.js
+// QR Code instance
+let qrcode = new QRCode(document.querySelector(".qrcode"));
 
-// create a new QRCode instance
-let qrcode = new QRCode(
-    document.querySelector(".qrcode")
-);
-
-// Initial QR code generation
+// Default QR
 qrcode.makeCode("Why did you scan me?");
 
-// Function to generate QR code based on user input
+// Generate QR
 function generateQr() {
-    let input = document.querySelector("input").value;
+    let text = document.getElementById("qrText").value;
 
-    if (input === "" || input === " ") {
-        alert("Input Field Can not be blank!");
-    } else {
-        qrcode.makeCode(input);
+    if (text.trim() === "") {
+        alert("Input field cannot be blank!");
+        return;
     }
+
+    qrcode.makeCode(text);
 }
 
-// Function to download QR code
+// Download QR with custom filename
 function downloadQR() {
     let qrContainer = document.querySelector(".qrcode");
-
-    // QRCode.js usually creates a canvas
     let canvas = qrContainer.querySelector("canvas");
 
-    if (canvas) {
-        let link = document.createElement("a");
-        link.href = canvas.toDataURL("image/png");
-        link.download = "qrcode.png";
-        link.click();
-    } 
-    else {
-        // fallback for image output
-        let img = qrContainer.querySelector("img");
-
-        if (img) {
-            let link = document.createElement("a");
-            link.href = img.src;
-            link.download = "qrcode.png";
-            link.click();
-        } 
-        else {
-            alert("QR code not generated yet!");
-        }
+    if (!canvas) {
+        alert("Please generate QR first!");
+        return;
     }
+
+    // get filename
+    let fileName = document.getElementById("fileName").value;
+
+    if (fileName.trim() === "") {
+        fileName = "qr-image";
+    }
+
+    let link = document.createElement("a");
+    link.href = canvas.toDataURL("image/png");
+    link.download = fileName + ".png";
+
+    link.click();
 }
+
+// Enter key support
+document.getElementById("qrText").addEventListener("keydown", function (e) {
+    if (e.key === "Enter") {
+        generateQr();
+    }
+});
